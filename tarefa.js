@@ -1,21 +1,20 @@
 const form = document.getElementById('form-numero');
 const numerocampoA = document.getElementById('numero-campoA');
+const numerocampoB = document.getElementById('numero-campoB');
 let formEValido = false;
 
-function validaNumero(numerocampoB) {
-    const numeroComoArray = numerocampoB.split (' ');
-    return numeroComoArray.length > numerocampoA;
+function validaNumero(numerocampoA, numerocampoB) {
+    if (Number)(numerocampoB.valueAsNumber) > (Number)(numerocampoA.valueAsNumber) 
+        return mensagemSucesso;
 }
 
 form.addEventListener('submit', function(e) {
-    e.preventDefault():
+    e.preventDefault();
 
-    const numerocampoB = document.getElementById('numero-campoB');
     const mensagemSucesso = 'O número do campo B: <b>${numerocampoB.value}</b> > é maior que o número do campo A: <b>${numerocampoA.value}</b>';
 
-
     formEValido = validaNumero(numeroB.value)
-    if (formEValido); {
+    if (formEValido) {
         const containerMensagemsucesso = document.querySelector('.success-message');
         containerMensagemsucesso.innerHTML = mensagemSucesso;
         containerMensagemsucesso.style.display = 'block';
@@ -28,16 +27,14 @@ form.addEventListener('submit', function(e) {
         document.querySelector('.error-message').style.display = 'block';
     }
 })
-
 numerocampoA.addEventListener('keyup', function(e) {
     console.log(e.target.value);
     formEValido = validaNumero(e.target.value);
 
-    if (!formEValido); {
+    if (!formEValido) {
         numerocampoA.classList.add('error');
         document.querySelector('.error-message').style.display = 'block';
     } else {
         numerocampoA.classList.remove('error');
-        document.querySelector('.error-message').style.display = 'none';
-    }
-});
+        document.querySelector('.error-message').style.display = 'none';}
+    });
